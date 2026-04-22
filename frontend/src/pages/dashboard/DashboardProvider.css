@@ -1,0 +1,309 @@
+.dashboard-provider { 
+  max-width: 100%;
+  width: 100%;
+  animation: fade-in-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dp-header { 
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.dp-header h1 { 
+  font-size: 2.25rem; 
+  font-weight: 800; 
+  color: var(--text-primary); 
+  margin-bottom: 0.625rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dp-header p { 
+  color: var(--text-secondary); 
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.dp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin-bottom: 3rem;
+}
+
+.dp-stat-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  background: #fff;
+  border-radius: 1.125rem;
+  border: 0.09375rem solid rgba(226, 232, 240, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.dp-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.1875rem;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dp-stat-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.08);
+  border-color: currentColor;
+}
+
+.dp-stat-card:hover::before {
+  opacity: 0.5;
+}
+
+.dp-stat-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0.25rem 0.75rem currentColor;
+}
+
+.dp-stat-card:hover .dp-stat-icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.dp-stat-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.875rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+}
+
+.dp-stat-icon.pending { 
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  box-shadow: 0 0.25rem 0.75rem rgba(251, 191, 36, 0.3);
+}
+
+.dp-stat-card:has(.dp-stat-icon.pending) {
+  color: #f59e0b;
+}
+
+.dp-stat-icon.earnings { 
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 0.25rem 0.75rem rgba(16, 185, 129, 0.3);
+}
+
+.dp-stat-card:has(.dp-stat-icon.earnings) {
+  color: #10b981;
+}
+
+.dp-stat-icon.payout { 
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  box-shadow: 0 0.25rem 0.75rem rgba(59, 130, 246, 0.3);
+}
+
+.dp-stat-card:has(.dp-stat-icon.payout) {
+  color: #3b82f6;
+}
+
+.dp-stat-content { 
+  flex: 1; 
+  min-width: 0; 
+}
+
+.dp-stat-value { 
+  display: block; 
+  font-size: 1.75rem; 
+  font-weight: 800; 
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.dp-stat-label { 
+  font-size: 0.9rem; 
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.dp-stat-link {
+  font-size: 0.925rem; 
+  font-weight: 700; 
+  color: var(--primary-green);
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.375rem;
+  transition: all 0.2s ease;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.5rem;
+  margin: -0.375rem -0.625rem;
+}
+
+.dp-stat-link:hover { 
+  background: rgba(45, 159, 132, 0.08);
+}
+
+.dp-stat-link svg {
+  transition: transform 0.3s ease;
+}
+
+.dp-stat-link:hover svg {
+  transform: translateX(0.1875rem);
+}
+
+.dp-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.dp-action-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: #fff;
+  border-radius: 1.25rem;
+  border: 0.09375rem solid rgba(226, 232, 240, 0.8);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.04);
+}
+
+.dp-action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-teal) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dp-action-card:hover {
+  transform: translateY(-0.375rem);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.1), 0 0 0 0.0625rem rgba(45, 159, 132, 0.1);
+  border-color: rgba(45, 159, 132, 0.4);
+}
+
+.dp-action-card:hover::before {
+  transform: scaleX(1);
+}
+
+.dp-action-card > svg { 
+  color: var(--primary-green); 
+  margin-bottom: 1.5rem;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dp-action-card:hover > svg {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.dp-action-card h3 { 
+  font-size: 1.35rem; 
+  font-weight: 800; 
+  margin-bottom: 0.5rem; 
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.dp-action-card p { 
+  font-size: 0.975rem; 
+  color: var(--text-secondary); 
+  margin-bottom: 1.5rem; 
+  flex: 1;
+  line-height: 1.6;
+}
+
+.dp-action-cta { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  font-weight: 700; 
+  font-size: 1rem; 
+  color: var(--primary-green);
+  transition: all 0.2s ease;
+}
+
+.dp-action-cta svg {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dp-action-card:hover .dp-action-cta {
+  color: #1e7a6d;
+}
+
+.dp-action-card:hover .dp-action-cta svg {
+  transform: translateX(0.25rem);
+}
+
+@media (max-width: 48em) {
+  .dp-header h1 {
+    font-size: 1.875rem;
+  }
+
+  .dp-header p {
+    font-size: 1rem;
+  }
+
+  .dp-cards {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dp-actions {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dp-stat-card,
+  .dp-action-card {
+    padding: 1.5rem;
+  }
+
+  .dp-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .dp-stat-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}

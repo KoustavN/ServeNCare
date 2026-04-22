@@ -1,0 +1,125 @@
+.provider-profile { 
+  max-width: 40rem;
+  animation: fade-in-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pp-header { 
+  margin-bottom: 2rem;
+}
+
+.pp-header h1 { 
+  font-size: 2.25rem; 
+  font-weight: 800; 
+  color: var(--text-primary); 
+  margin-bottom: 0.625rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pp-header p { 
+  color: var(--text-secondary); 
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.pp-loading { 
+  padding: 3rem 2rem; 
+  color: var(--text-secondary);
+  text-align: center;
+  background: #fff;
+  border-radius: 1.25rem;
+  border: 0.09375rem solid rgba(226, 232, 240, 0.8);
+}
+
+.pp-form { 
+  background: #fff; 
+  border-radius: 1.25rem; 
+  border: 0.09375rem solid rgba(226, 232, 240, 0.8); 
+  padding: 2rem 2.5rem;
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.04);
+}
+
+.pp-field { 
+  margin-bottom: 1.5rem; 
+}
+
+.pp-field label { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  font-weight: 700; 
+  font-size: 0.95rem; 
+  color: var(--text-primary); 
+  margin-bottom: 0.625rem; 
+}
+
+.pp-field input, 
+.pp-field textarea {
+  width: 100%; 
+  padding: 0.875rem 1.125rem; 
+  border-radius: 0.75rem; 
+  border: 0.09375rem solid rgba(226, 232, 240, 0.8);
+  font-size: 1rem; 
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.pp-field input:hover,
+.pp-field textarea:hover {
+  border-color: rgba(45, 159, 132, 0.4);
+}
+
+.pp-field input:focus, 
+.pp-field textarea:focus {
+  outline: none; 
+  border-color: var(--primary-green); 
+  box-shadow: 0 0 0 0.1875rem rgba(45, 159, 132, 0.15);
+}
+
+.pp-row { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 1.25rem; 
+}
+
+.pp-form .btn { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.625rem; 
+  margin-top: 1rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(45, 159, 132, 0.3);
+  font-weight: 700;
+}
+
+@media (max-width: 40em) {
+  .pp-header h1 {
+    font-size: 1.875rem;
+  }
+
+  .pp-header p {
+    font-size: 1rem;
+  }
+
+  .pp-form {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .pp-row {
+    grid-template-columns: 1fr;
+  }
+}

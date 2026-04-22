@@ -1,0 +1,190 @@
+.dashboard-taker { 
+  max-width: 100%;
+  width: 100%;
+  animation: fade-in-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dt-header { 
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.dt-header h1 { 
+  font-size: 2.25rem; 
+  font-weight: 800; 
+  color: var(--text-primary); 
+  margin-bottom: 0.625rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dt-header p { 
+  color: var(--text-secondary); 
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.dt-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.dt-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: #fff;
+  border-radius: 1.25rem;
+  border: 0.09375rem solid rgba(226, 232, 240, 0.8);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.04);
+}
+
+.dt-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-teal) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dt-card:hover {
+  transform: translateY(-0.375rem);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.1), 0 0 0 0.0625rem rgba(45, 159, 132, 0.1);
+  border-color: rgba(45, 159, 132, 0.4);
+}
+
+.dt-card:hover::before {
+  transform: scaleX(1);
+}
+
+.dt-card-primary {
+  border-color: rgba(45, 159, 132, 0.4);
+  background: linear-gradient(135deg, rgba(45, 159, 132, 0.05) 0%, rgba(255, 255, 255, 1) 50%);
+  box-shadow: 0 0.25rem 0.75rem rgba(45, 159, 132, 0.08);
+}
+
+.dt-card-primary::before {
+  height: 0.3125rem;
+  background: linear-gradient(90deg, #2d9f84 0%, #5eead4 100%);
+}
+
+.dt-card-primary:hover { 
+  border-color: var(--primary-green);
+  box-shadow: 0 1.5rem 3rem rgba(45, 159, 132, 0.15), 0 0 0 0.0625rem rgba(45, 159, 132, 0.2);
+}
+
+.dt-card-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #2d9f84 0%, #1e7a6d 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.5rem 1.25rem rgba(45, 159, 132, 0.3), inset 0 0.0625rem 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dt-card-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+}
+
+.dt-card:hover .dt-card-icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.dt-card h3 { 
+  font-size: 1.35rem; 
+  font-weight: 800; 
+  margin-bottom: 0.5rem; 
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.dt-card p { 
+  font-size: 0.975rem; 
+  color: var(--text-secondary); 
+  margin-bottom: 1.5rem; 
+  flex: 1;
+  line-height: 1.6;
+}
+
+.dt-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--primary-green);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.dt-card-cta svg {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dt-card:hover .dt-card-cta {
+  color: #1e7a6d;
+}
+
+.dt-card:hover .dt-card-cta svg {
+  transform: translateX(0.25rem);
+}
+
+@media (max-width: 48em) {
+  .dt-header h1 {
+    font-size: 1.875rem;
+  }
+
+  .dt-header p {
+    font-size: 1rem;
+  }
+
+  .dt-actions {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dt-card {
+    padding: 1.5rem;
+  }
+
+  .dt-card-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}

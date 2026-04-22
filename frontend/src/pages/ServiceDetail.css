@@ -1,0 +1,2 @@
+/* ServiceDetail – minimal Leaflet overrides only. All layout is Tailwind. */
+.leaflet-container { border-radius: 16px; }
