@@ -108,15 +108,15 @@ Make sure to configure the following in your `.env` file:
 * Any API keys used
 
 ---
-
 ## ✨ Features
 
-* Modular full-stack architecture
-* RESTful API design
-* Environment-based configuration
-* Scalable folder structure
-* Modern frontend with Vite
-
+- 🔐 JWT-based user authentication (Login / Signup)
+- 👥 Role-based access (User / Admin)
+- 📅 Service booking system with request tracking
+- 🛠 CRUD operations for service management
+- 📊 Dashboard to view and manage bookings
+- 🌐 RESTful API with structured endpoints
+- ⚠️ Error handling and validation across forms and APIs
 ---
 
 ## 🚧 Future Improvements
